@@ -1,3 +1,19 @@
+///5.9
+const isMeetingWithinWorkingHours = (startDay, endDay, startMeeting, duration) => {
+  const getMinutes = (time) => {
+    const [hours, minutes] = time.split(':').map(Number);
+    return hours * 60 + minutes;
+  };
+
+  const startWork = getMinutes(startDay);
+  const endWork = getMinutes(endDay);
+  const meetingStart = getMinutes(startMeeting);
+  const meetingEnd = meetingStart + duration;
+
+  return meetingStart >= startWork && meetingEnd <= endWork;
+};
+
+///5.8
 function checkStringLength(string, maxLength) {
   return string.length <= maxLength;
 }
@@ -45,3 +61,4 @@ getDigits('а я томат');
 getDigits(2023);
 getDigits(-1);
 getDigits(1.5);
+
